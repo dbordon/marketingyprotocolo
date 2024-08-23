@@ -1,0 +1,69 @@
+SELECT  CONCAT(username,' - ',name_user) AS Funcionanrio, CONCAT(nombres,' , ', apellidos,' - ',cedula) AS PERSONA , ui.fecha_carga, ui.estado
+FROM	usuario_interesado ui, interesados i, usuarios u
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user ORDER BY Funcionanrio
+
+
+
+/*Cantidad  usuario*/
+
+SELECT name_user
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user GROUP BY u.name_user
+
+/*Cantidad de actividad por usuario*/
+SELECT name_user, COUNT(*) 
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user GROUP BY u.name_user
+
+
+
+/*1-Cantidad  usuario para  CHAR*/
+
+SELECT name_user
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user GROUP BY u.name_user
+
+/*2-Cantidad de actividad por usuario CON CHAR*/
+SELECT COUNT(*) 
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user GROUP BY u.name_user
+
+/*3-Cantidad de actividad por usuario*/
+SELECT name_user, COUNT(*) 
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user GROUP BY u.name_user
+
+
+/*Cantidad de actividad por usuario SINSEGUIMIENTO*/
+SELECT name_user AS Funcionario, COUNT(*)  AS cantididad
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user AND ui.estado='sinseguimiento' GROUP BY u.name_user
+
+/*Cantidad de actividad por usuario VOLVERALLAMAR*/
+SELECT name_user AS Funcionario, COUNT(*)  AS cantididad
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user AND ui.estado='VOLVERALLAMAR' GROUP BY u.name_user
+
+
+
+/*Cantidad de actividad por usuario CONCLUIDOS*/
+SELECT name_user AS Funcionario, COUNT(*)  AS cantididad
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user AND ui.estado='CONCLUIDO' GROUP BY u.name_user
+
+/*Cantidad de actividad por usuario CONFIRMADOS*/
+SELECT name_user AS Funcionario, COUNT(*)  AS cantididad
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user AND ui.estado='CONFIRMADO' GROUP BY u.name_user
+
+
+/*Cantidad de actividad por usuario VOLVERALLAMAR*/
+SELECT name_user AS Funcionario, COUNT(*)  AS cantididad
+FROM usuario_interesado ui, interesados i, usuarios u 
+WHERE  ui.id_interesado= i.id_interesado AND ui.id_user=u.id_user AND ui.estado='INACTIVO' GROUP BY u.name_user
+
+
+
+SELECT *FROM usuarios;
+
+
